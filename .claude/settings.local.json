@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(if \\(-not \\(Test-Path \"C:\\\\Users\\\\Administrator\\\\.claude\\\\projects\\\\C--Apps-modelzero-co-kr\\\\memory\"\\)\\) { New-Item -ItemType Directory -Force \"C:\\\\Users\\\\Administrator\\\\.claude\\\\projects\\\\C--Apps-modelzero-co-kr\\\\memory\" })",
+      "Skill(run)",
+      "PowerShell(try { $r = Invoke-WebRequest -Uri \"http://localhost:3000\" -TimeoutSec 3 -UseBasicParsing; \"OK: $\\($r.StatusCode\\)\" } catch { \"NOT_RUNNING\" })",
+      "PowerShell(cd C:\\\\Apps\\\\modelzero.co.kr; Start-Process -FilePath \"powershell\" -ArgumentList \"-NoProfile -Command `\"npm run dev 2>&1 | Tee-Object C:\\\\Temp\\\\nextjs-dev.log`\"\" -WindowStyle Hidden; Write-Host \"Server starting...\")",
+      "PowerShell(node C:\\\\Temp\\\\cart-screenshot.js)",
+      "PowerShell(cd C:\\\\Temp; $env:NODE_PATH = \"C:\\\\Temp\\\\node_modules\"; node take-screenshot.js 2>&1)",
+      "PowerShell(cd C:\\\\Temp; $env:NODE_PATH = \"C:\\\\Temp\\\\node_modules\"; node e2e-test.js 2>&1)",
+      "PowerShell(Get-Process *)",
+      "PowerShell(cd C:\\\\Apps\\\\modelzero.co.kr; Start-Process -FilePath \"powershell\" -ArgumentList \"-NoProfile -Command `\"npm run dev`\"\" -WindowStyle Hidden; Write-Host \"starting...\")",
+      "PowerShell(cd C:\\\\Apps\\\\modelzero.co.kr; Start-Process -FilePath \"powershell\" -ArgumentList \"-NoProfile -Command `\"npm run dev 2>&1 | Tee-Object C:\\\\Temp\\\\dev.log`\"\" -WindowStyle Hidden; Write-Host \"starting\")",
+      "PowerShell(cd C:\\\\Temp; $env:NODE_PATH = \"C:\\\\Temp\\\\node_modules\"; node toss-widget-check.js 2>&1)",
+      "PowerShell(cd C:\\\\Apps\\\\modelzero.co.kr; Start-Job -ScriptBlock { cd C:\\\\Apps\\\\modelzero.co.kr; npm run dev } | Select-Object -ExpandProperty Id)",
+      "PowerShell(Start-Sleep -Seconds 8; $resp = try { Invoke-WebRequest -Uri \"http://localhost:3000\" -TimeoutSec 5 -UseBasicParsing } catch { $null }; if \\($resp\\) { \"서버 응답: $\\($resp.StatusCode\\)\" } else { \"서버 미응답\" })",
+      "PowerShell(Receive-Job *)",
+      "PowerShell(Start-Sleep -Seconds 10; $resp = try { Invoke-WebRequest -Uri \"http://localhost:3000\" -TimeoutSec 5 -UseBasicParsing } catch { $null }; if \\($resp\\) { \"서버 응답: $\\($resp.StatusCode\\)\" } else { \"서버 미응답 — 로그 확인\" })",
+      "PowerShell(Test-Path *)",
+      "PowerShell(Get-ChildItem \"C:\\\\Program Files\\\\\" -Directory | Select-Object Name; Get-ChildItem \"C:\\\\Program Files \\(x86\\)\\\\\" -Directory -ErrorAction SilentlyContinue | Where-Object { $_.Name -match -join\\(\"git\",\"hub\",\"source\"\\) } | Select-Object Name)",
+      "PowerShell(winget install *)",
+      "PowerShell(Start-Sleep -Seconds 5; \\(Get-Item \"$env:TEMP\\\\git-installer.exe\"\\).Length)",
+      "PowerShell(Start-Sleep -Seconds 8; \\(Get-Item \"$env:TEMP\\\\git-installer.exe\"\\).Length)",
+      "PowerShell(git *)",
+      "PowerShell($env:PATH += \";C:\\\\Program Files\\\\Git\\\\bin\"; cd C:\\\\Apps\\\\modelzero.co.kr; git status)"
+    ]
+  }
+}
