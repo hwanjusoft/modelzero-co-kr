@@ -8,7 +8,7 @@ import { z } from "zod"
 import { loadTossPayments } from "@tosspayments/tosspayments-sdk"
 import { useCartStore } from "@/store/cartStore"
 
-const CLIENT_KEY = process.env.NEXT_PUBLIC_TOSS_CLIENT_KEY!
+const CLIENT_KEY = process.env.NEXT_PUBLIC_TOSS_CLIENT_KEY || "test_ck_D5GePWvyJnrK0W0k6q8gLzN97Eoq"
 
 const PAYMENT_METHODS = [
   { id: "CARD" as const,             label: "신용 / 체크카드", icon: "💳" },
