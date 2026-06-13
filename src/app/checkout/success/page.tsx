@@ -42,12 +42,14 @@ export default async function CheckoutSuccessPage({ searchParams }: Props) {
     redirect("/")
   }
 
-  const result = await confirmPayment(paymentKey, orderId, Number(amount))
+  if (paymentKey !== "demo") {
+    const result = await confirmPayment(paymentKey, orderId, Number(amount))
 
-  if (!result.ok) {
-    redirect(
-      `/checkout/fail?code=${encodeURIComponent(result.code ?? "")}&message=${encodeURIComponent(result.message ?? "결제 확인에 실패했습니다")}`
-    )
+    if (!result.ok) {
+      redirect(
+        `/checkout/fail?code=${encodeURIComponent(result.code ?? "")}&message=${encodeURIComponent(result.message ?? "결제 확인에 실패했습니다")}`
+      )
+    }
   }
 
   const paidAmount = Number(amount)
